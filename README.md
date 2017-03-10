@@ -1,2 +1,2 @@
-# MagentaAlt
-test repo for Magenta Group Project
+# MagentaATS
+A job-applicant tracking system designed for Human Resources
