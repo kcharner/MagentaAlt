@@ -1,6 +1,6 @@
 {
   "development": {
-    "port": 3306,
+    "port": 8889,
     "dialect": "mysql",
     "host": "localhost",
     "username": "root",

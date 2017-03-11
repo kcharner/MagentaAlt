@@ -31,4 +31,12 @@ router.post("/create", function(req, res) {
             res.redirect('/home')
         });
     })
+
+router.post("/viewAll", function(req, res) {
+
+})
+
+
+
+
 module.exports = router;

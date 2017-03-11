@@ -8,7 +8,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 4000;
+var PORT = 3000;
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
