@@ -18,11 +18,11 @@
 		<div class="jumbotron">
 			<h2>New Applicants</h2>
 			<p>Will fill in description later - this is placeholder text</p>
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newApplicantModal">
 		  	ADD NEW APPLICANT
 			</button>
 			<!-- modal start -->
-			<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal fade bs-example-modal-lg" id="newApplicantModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog">
 			  <!-- Modal Content -->
 			    <div class="modal-content">
@@ -145,7 +145,46 @@
 		<div class="jumbotron">
 			<h2>View All Applicants</h2>
 			<p>Will fill in description later - this is placeholder text</p>
-			<button>View All</button> <!-- will link to new HTML file -->
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#allApplicants">
+		  	VIEW ALL APPLICANTS
+			</button>
+			<!-- Start of Modal -->
+			<div class="modal fade bs-example-modal-lg" id="allApplicants" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog">
+				  <!-- Modal Content -->
+				    <div class="modal-content">
+				    	<!-- Modal Header -->
+				      <!-- The .modal-header class is used to define the style for the header of the modal  -->
+				      <div class="modal-header">
+				      <!-- The <button> inside the header has a data-dismiss="modal" attribute which closes the modal if you click on it -->
+				      <!-- The .close class styles the close button, and the .modal-title class styles the header with a proper line-height -->
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Applicants per Contract</h4>
+				      </div>
+
+				      <!-- The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc. -->
+				      <div class="modal-body">
+				        	<div class="form-group">
+		                <label for="contract_id">Contract</label>
+		                	<select data-placeholder="" name="contract_id" class="chosen-select" id="contract_id">
+						 		<option value=""></option>
+					            <option value="1">1 - Transportation</option>
+					            <option value="2">2 - Warehouse</option>
+					            <option value="3">3 - Lav&amp;Water</option>
+					            <option value="4">4 - FeDex</option>
+					            <option value="5">5 - VBC</option>
+					            <option value="6">6 - Wheelchair</option>
+					            <option value="7">7 - Port Authority Baggage</option>
+	      					</select>
+	              	  </div>
+				      </div> <!-- End of Modal Body -->
+				      <!-- The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default. -->
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				      </div>
+				    </div> <!-- End of Modal Content -->
+				  </div> 
+				</div> <!-- End of Modal -->			
 		</div> <!-- use handlebars here? -->
 		<!-- start results dashboard div -->
 		<div class="jumbotron">
