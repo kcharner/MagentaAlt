@@ -4,7 +4,7 @@
   "description": "A job-applicant tracking system designed for Human Resources",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^1.0.2",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.6",
