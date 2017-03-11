@@ -29,8 +29,9 @@ app.listen(PORT, function() {
 
 var applicationController = require("./controllers/applicationController.js");
 var usersController = require("./controllers/usersController.js");
+var applicantsController = require("./controllers/applicantsController.js");
 
-app.use("/", applicationController, usersController);
+app.use("/", applicationController, usersController, applicantsController);
 
 
 

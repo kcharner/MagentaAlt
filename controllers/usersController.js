@@ -6,10 +6,6 @@ var path = require('path');
 
 var router = express();
 
-router.get('/home', function(req,res) {
-  res.render('users/homepage');
-});
-
 router.get('/dashboard', function(req,res) {
   res.render('users/dashboard');
 });
