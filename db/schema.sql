@@ -4,26 +4,6 @@ USE magenta_db;
 
 -- DATE MUST BE IN THIS FORMAT: YYYY-MM-DD
 
--- TABLE 1 - APPLICANTS TABLE
-CREATE TABLE applicants
-(
-	id int NOT NULL AUTO_INCREMENT,
-	first_name varchar(255) NOT NULL,
-	last_name varchar(255) NOT NULL,
-	home_phone int(10) NOT NULL,
-	cell_phone int(10) NOT NULL,
-	email varchar(255) NOT NULL,
-	contract_id int NOT NULL,
-	position_id int NOT NULL,
-	driver_license varchar(20),
-	driver_exp DATE,
-	sora_license varchar(50),
-	sora_exp DATE,
-	PRIMARY KEY (id),
-	FOREIGN KEY (contract_id) references contracts(id),
-	FOREIGN KEY (position_id) references positions(id)
-);
-
 -- TABLE 2 - CONTRACTS TABLE
 CREATE TABLE contracts
 (
@@ -40,6 +20,27 @@ CREATE TABLE positions
 	position varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );
+
+-- TABLE 1 - APPLICANTS TABLE
+CREATE TABLE applicants
+(
+	id int NOT NULL AUTO_INCREMENT,
+	first_name varchar(255) NOT NULL,
+	last_name varchar(255) NOT NULL,
+	home_phone varchar(15) NOT NULL,
+	cell_phone varchar(15) NOT NULL,
+	email varchar(255) NOT NULL,
+	contract_id int NOT NULL,
+	position_id int NOT NULL,
+	driver_license varchar(20),
+	driver_exp DATE,
+	sora_license varchar(50),
+	sora_exp DATE,
+	PRIMARY KEY (id),
+	FOREIGN KEY (contract_id) references contracts(id),
+	FOREIGN KEY (position_id) references positions(id)
+);
+
 
 -- TABLE 4 - APPLICANTS > CONTRACTS > POSITIONS TABLE
 CREATE TABLE combined
