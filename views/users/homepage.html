@@ -40,33 +40,88 @@
 
 			      <!-- New Applicant Form -->
 			        <form action="" method="post" role="form">
+
 			          <div class="form-group">
-			            <label for="lastName">Last Name</label>
-			            <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter Last Name" required/>
+			            <label for="first_name">First Name</label>
+			            <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Enter First Name" required/>
 			          </div>
+
 			          <div class="form-group">
-			            <label for="firstName">First Name</label>
-			            <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter First Name" required/>
+			            <label for="last_name">Last Name</label>
+			            <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Enter Last Name" required/>
 			          </div>
+
 			          <div class="form-group">
-			            <label for="contract">Contract</label>
-			            <input type="text" name="contract" class="form-control" id="contract" placeholder="Contract ID/Name" required/>
+			            <label for="home_phone">Home Phone</label>
+			            <input type="text" name="home_phone" class="form-control" id="home_phone" placeholder="Home Phone" required/>
 			          </div>
+
 			          <div class="form-group">
-			            <label for="position">Position</label>
-			            <input type="text" class="form-control" name="position" id="position" placeholder="Enter Position" required/>
+			            <label for="cell_phone">Cell Phone</label>
+			            <input type="text" name="cell_phone" class="form-control" id="cell_phone" placeholder="Cell Phone" required/>
 			          </div>
+
 			          <div class="form-group">
-			            <label for="birthDate">DOB</label>
-			            <input type="text" name="birthdDate" class="form-control" id="birthDate" placeholder="Enter DOB" required/>
+			            <label for="email">Email Address</label>
+			            <input type="text" name="email" class="form-control" id="email" placeholder="Email Address" required/>
 			          </div>
+						
+					  <div class="form-group">
+		                <label for="contract_id">Contract</label>
+		                	<select data-placeholder="" name="contract_id" class="chosen-select" id="contract_id">
+						 		<option value=""></option>
+					            <option value="1">1 - Transportation</option>
+					            <option value="2">2 - Warehouse</option>
+					            <option value="3">3 - Lav&amp;Water</option>
+					            <option value="4">4 - FeDex</option>
+					            <option value="5">5 - VBC</option>
+					            <option value="6">6 - Wheelchair</option>
+					            <option value="7">7 - Port Authority Baggage</option>
+	      					</select>
+	              	  </div>
+
+	              	  <div class="form-group">
+		                <label for="position_id">Position</label>
+		                	<select data-placeholder="" name="position_id" class="chosen-select" id="position_id">
+						 		<option value=""></option>
+					            <option value="1">1 - Escort</option>
+					            <option value="2">2 - Gate Agent</option>
+					            <option value="3">3 - Supervisor</option>
+					            <option value="4">4 - Lav Driver</option>
+					            <option value="5">5 - VBC</option>
+					            <option value="6">6 - Wheelchair Agent</option>
+					            <option value="7">7 - Baggage Handler</option>
+					            <option value="8">8 - Team Lead</option>
+					            <option value="9">9 - Bus Driver</option>
+					            <option value="10">10 - Operations Managers</option>
+	      					</select>
+	              	  </div>
+
 			          <div class="form-group">
-			            <label for="firstName">License # <i>(if applicable)</i></label>
-			            <input type="text" name="license" class="form-control" id="license" placeholder="License #"/>
+			            <label for="driver_license">Driver License # (if applicable)</label>
+			            <input type="text" name="driver_license" class="form-control" id="driver_license" placeholder="Driver License #"/>
 			          </div>
+
+			          <div class="form-group">
+			            <label for="driver_exp">Driver License Expiration Date in YYYY-MM-DD format (if applicable)</label>
+			            <input type="text" name="driver_exp" class="form-control" id="driver_exp" placeholder="Driver License Expiration Date"/>
+			          </div>
+
+			          <div class="form-group">
+			            <label for="sora_license">SORA License # (if applicable)</label>
+			            <input type="text" name="sora_license" class="form-control" id="sora_license" placeholder="SORA License #"/>
+			          </div>
+
+			          <div class="form-group">
+			            <label for="sora_exp">SORA License Expiration Date in YYYY-MM-DD format (if applicable)</label>
+			            <input type="text" name="sora_exp" class="form-control" id="sora_exp" placeholder="SORA License Expiration Date"/>
+			          </div>
+
+			          
 			          <div class="form-group">
 			          	<input type="submit" class="btn btn-primary" value="Add New Applicant">
 			          </div>
+
 			        </form>      	
 			      </div> <!-- End of Modal Body -->
 			      <!-- The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default. -->
