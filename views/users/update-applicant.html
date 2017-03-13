@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Magenta Applicant Tracking App</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/formatStyle.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<header class="jumbotron">
+		<h1>Update Applicants Dashboard</h1>
+	</header>
+	<section class="container">
+		<h2>Search Applicant</h2>
+		<div class="col-lg-4">
+			<input type="text" name="lastName" placeholder="Search by Last Name">
+			<input data-toggle="modal" data-target="#updateApplicant" action="/applicants/update" method="GET" type="submit" name="search" value="Submit"></input>
+		</div>
+	</section>
+				<!-- modal start -->
+			<div class="modal fade bs-example-modal-lg" id="updateApplicant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog">
+			  <!-- Modal Content -->
+			    <div class="modal-content">
+			    	<!-- Modal Header -->
+			      <!-- The .modal-header class is used to define the style for the header of the modal  -->
+			      <div class="modal-header">
+			      <!-- The <button> inside the header has a data-dismiss="modal" attribute which closes the modal if you click on it -->
+			      <!-- The .close class styles the close button, and the .modal-title class styles the header with a proper line-height -->
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">New Applicant</h4>
+			      </div>
+
+			      <!-- The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc. -->
+			      <div class="modal-body">
+     						
+			      </div> <!-- End of Modal Body -->
+			      <!-- The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default. -->
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			      </div>
+			    </div> <!-- End of Modal Content -->
+			  </div> 
+			</div> <!-- End of Modal -->
+	<footer class="container">
+		<p>Copyright 2017 Magenta Group</p>
+	</footer>
+</body>
+</html>
