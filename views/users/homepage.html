@@ -181,15 +181,17 @@
 	      				    	<button type="submit" class="btn btn-primary btn-md" id="add-btn"> View Contracts</button>
 							</div>
 	              	  </div>
+					
+					<div id="viewData">
+						<table>
+						</table>
+					</div>
+
 				      </div> <!-- End of Modal Body -->
 				      <!-- The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default. -->
 				      <div class="modal-footer">
 				        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 				      </div>
-					
-					<div>
-						<p id="viewData"></p>
-					</div>
 
 				    </div> <!-- End of Modal Content -->
 				  </div> 
@@ -225,9 +227,16 @@
 		}
 		console.log(contractOption);
 
+
 		$.post("/viewAll", contractOption, function(data) {
 
-			$("#viewData").html(data.id);
+			$("table").append("tr> <th>First Name</th> <th>Last Name</th> <th>Cell Phone</th> <th>Email</th> <th>Contract Name</th> <th>Position</th> </tr>")
+
+			for (var i=0; i<data.length; i++) {
+
+				$("#viewData").append("<tr> <td>" + data[i].first_name + "</td> <td>" + data[i].last_name + "</td> <td>" + data[i].cell_phone + "</td> <td>" + data[i].email + "</td> <td>" + data[i].contract_name + "</td> <td>" + data[i].position + "</td> </tr>");
+
+			}
 
 		});
 
