@@ -30,9 +30,22 @@ router.post("/create", function(req, res) {
     connection.query(query, [ req.body.first_name, req.body.last_name, req.body.home_phone, req.body.cell_phone, req.body.email, req.body.contract_id, req.body.position_id, req.body.driver_license, req.body.driver_exp, req.body.sora_license, req.body.sora_exp ], function(response) {
             res.redirect('/home')
         });
-    })
+})
 
 router.post("/viewAll", function(req, res) {
+
+    // var contractOption = req.body;
+    // console.log(contractOption.contract);
+
+    var query = "SELECT a.id, a.first_name, a.last_name, a.cell_phone, a.email, c.contract_name, p.position FROM applicants a LEFT JOIN contracts c ON c.id = a.contract_id LEFT JOIN positions p ON a.position_id = p.id WHERE contract_id = ?";
+
+    connection.query(query, [req.body.contract], function(err, response) {
+
+      console.log(response);
+      res.send(response);
+
+    });
+
 
 })
 
