@@ -165,23 +165,32 @@
 				      <!-- The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc. -->
 				      <div class="modal-body">
 				        	<div class="form-group">
-		                <label for="contract_id">Contract</label>
-		                	<select data-placeholder="" name="contract_id" class="chosen-select" id="contract_id">
+		                <label for="contract_view">Contract</label>
+		                	<select class="chosen-select" id="contract_view">
 						 		<option value=""></option>
-					            <option value="1">1 - Transportation</option>
-					            <option value="2">2 - Warehouse</option>
-					            <option value="3">3 - Lav&amp;Water</option>
-					            <option value="4">4 - FeDex</option>
-					            <option value="5">5 - VBC</option>
-					            <option value="6">6 - Wheelchair</option>
-					            <option value="7">7 - Port Authority Baggage</option>
+					            <option value="1" id="option1">1 - Transportation</option>
+					            <option value="2" id="option2">2 - Warehouse</option>
+					            <option value="3" id="option3">3 - Lav&amp;Water</option>
+					            <option value="4" id="option4">4 - FeDex</option>
+					            <option value="5" id="option5">5 - VBC</option>
+					            <option value="6" id="option6">6 - Wheelchair</option>
+					            <option value="7" id="option7">7 - Port Authority Baggage</option>
 	      					</select>
+
+	      				    <div class="text-right">
+	      				    	<button type="submit" class="btn btn-primary btn-md" id="add-btn"> View Contracts</button>
+							</div>
 	              	  </div>
 				      </div> <!-- End of Modal Body -->
 				      <!-- The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default. -->
 				      <div class="modal-footer">
 				        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 				      </div>
+					
+					<div>
+						<p id="viewData"></p>
+					</div>
+
 				    </div> <!-- End of Modal Content -->
 				  </div> 
 				</div> <!-- End of Modal -->			
@@ -201,8 +210,30 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	
+	$("#add-btn").on("click", function() {
+
+		// event.preventDefault();
+
+		var contractOption = {
+			contract: $("#contract_view").val()
+		}
+		console.log(contractOption);
+
+		$.post("/viewAll", contractOption, function(data) {
+
+			$("#viewData").html(data.id);
+
+		});
+
+	});
+
+</script>
 
 </body>
 </html>
