@@ -21,6 +21,9 @@ app.use(cookieParser());
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(process.cwd() + "/public"));
+
 // Start The Server
 // =============================================================
 app.listen(PORT, function() {

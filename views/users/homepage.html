@@ -119,7 +119,7 @@
 
 			          
 			          <div class="form-group">
-			          	<input type="submit" id="submit" class="btn btn-primary" value="Add New Applicant">
+			          	<input id="createBtn" type="submit" id="submit" class="btn btn-primary" value="Add New Applicant">
 			          </div>
 
 			        </form>      	
@@ -130,7 +130,7 @@
 			      </div>
 			    </div> <!-- End of Modal Content -->
 			  </div> 
-			</div> <!-- End of Modal -->
+			</div><!-- End of Modal -->
 		</div>
 		<!-- start update applicant div -->
 		<div class="jumbotron">
@@ -180,6 +180,9 @@
 	      				    <div class="text-right">
 	      				    	<button type="submit" class="btn btn-primary btn-md" id="add-btn"> View Contracts</button>
 							</div>
+
+							<div id="contratTitle"></div>
+
 	              	  </div>
 					
 					<div id="viewData">
@@ -219,29 +222,25 @@
 <script type="text/javascript">
 	
 	$("#add-btn").on("click", function() {
-
 		// event.preventDefault();
-
 		var contractOption = {
 			contract: $("#contract_view").val()
 		}
 		console.log(contractOption);
 
-
 		$.post("/viewAll", contractOption, function(data) {
+
+
 
 			$("table").html("<thead><tr> <th scope='row'>First Name</th> <th>Last Name</th> <th>Cell Phone</th> <th>Email</th> <th>Contract Name</th> <th>Position</th> </tr></thead><tbody>")
 
+			$("#contratTitle").html("<h4>Viewing Contract: " + data[0].contract_name + "</h4>");
+
 			for (var i=0; i<data.length; i++) {
-
 				$("table").append("<tr> <td>" + data[i].first_name + "</td> <td>" + data[i].last_name + "</td> <td>" + data[i].cell_phone + "</td> <td>" + data[i].email + "</td> <td>" + data[i].contract_name + "</td> <td>" + data[i].position + "</td> </tr>");
-
 			}
-
 			$("table").append("</tbody>")
-
 		});
-
 	});
 
 </script>
