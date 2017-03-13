@@ -29,9 +29,6 @@ INSERT INTO applicants (first_name, last_name, home_phone, cell_phone, email, co
 INSERT INTO applicants (first_name, last_name, home_phone, cell_phone, email, contract_id, position_id, driver_license, driver_exp) VALUES("James", "Winkler", "4199069540", "3455616655", "james@magentaATS.com", 6, 3, "MD56758473612", "2019-10-13");
 INSERT INTO applicants (first_name, last_name, home_phone, cell_phone, email, contract_id, position_id) VALUES("Kathryn", "Eller", "7135558943", "7135558655", "kathryn@magentaATS.com", 7, 2);
 INSERT INTO applicants (first_name, last_name, home_phone, cell_phone, email, contract_id, position_id, driver_license, driver_exp) VALUES("David", "Calvert", "3054308163", "4308163305", "david@magentaATS.com", 1, 1, "NJ5764837563", "2017-05-07");
-  
-  
-  
 
 
 
