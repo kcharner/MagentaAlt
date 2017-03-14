@@ -62,24 +62,17 @@ router.post("/viewAll", function(req, res) {
 
 router.post("/viewProcess", function(req, res) {
 
-    
-    // if(response.length > 0){
-    //    res.send('We do not have a record for this applicant.')
-    // }
-    // else{
-      query = "SELECT a.id, a.first_name, a.last_name, ap.applicant_id, ap.applied, ap.fp_appt, ap.fp_background_approval, ap.orange_tag, ap.sida_class, ap.side_result, ap.orientation_training, ap.safety_training, ap.customer_training, ap.receive_id from applicants a LEFT JOIN application_process ap ON ap.applicant_id = a.id WHERE email=?";
-    // }
+  query = "SELECT a.id, a.first_name, a.last_name, ap.applicant_id, ap.applied, ap.fp_appt, ap.fp_background_approval, ap.orange_tag, ap.sida_class, ap.side_result, ap.orientation_training, ap.safety_training, ap.customer_training, ap.receive_id from applicants a LEFT JOIN application_process ap ON ap.applicant_id = a.id WHERE email=?";
 
-    // if (response.length > 0) {
-    //     res.send('We do not have a record for this applicant.')
-    // } else {
-    //   query = "SELECT * from applicants where id = ?";
-    // }
-    
-    connection.query(query, [req.body.email], function(err, response) {
+  connection.query(query, [req.body.email], function(err, response) { 
+    if(response < 0){
+       res.send('We do not have a record for this applicant.')
+    }
+    else{
       console.log(response)
-          res.send(response);
-      });
+      res.send(response); 
+    }
+  });
 });
 
 
