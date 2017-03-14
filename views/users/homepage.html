@@ -230,8 +230,6 @@
 
 		$.post("/viewAll", contractOption, function(data) {
 
-
-
 			$("table").html("<thead><tr> <th scope='row'>First Name</th> <th>Last Name</th> <th>Cell Phone</th> <th>Email</th> <th>Contract Name</th> <th>Position</th> </tr></thead><tbody>")
 
 			$("#contratTitle").html("<h4>Viewing Contract: " + data[0].contract_name + "</h4>");

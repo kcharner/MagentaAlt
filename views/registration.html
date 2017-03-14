@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<h1>Registration</h1>
+
+<form class="create-update-form" action="/create" method="POST">
+  <div class="form-group">
+    <input type="radio" id="level" name="level" value="hr">I am part of HR<br>
+    <input type="radio" id="level" name="level" value="management">I am part of Management
+  </div>
+
+  <div class="form-group">
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name">
+  </div>
+
+  <div class="form-group">
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+  </div>
+
+  <button type="submit" id="submit">Sign Up!</button>
+</form>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  
+  $("#submit").on("click", function() {
+
+    var newUser = {
+      first_name: $("#first_name").val(),
+      last_name: $("#last_name").val(),
+      email: $("#email").val(),
+      password: $("#password").val()
+    }
+    console.log(newUser);
+
+    $.post("/create", newUser, function(data) {
+
+    });
+
+
+  });
+
+</script>
+
+
+</body>
+</html>
