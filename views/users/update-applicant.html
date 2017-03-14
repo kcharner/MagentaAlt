@@ -15,10 +15,14 @@
 	<section class="container">
 		<h2>Search Applicant</h2>
 		<div class="col-lg-4">
-			<input type="text" name="lastName" placeholder="Search by Last Name">
+			<input type="text" name="email" placeholder="Search by Email">
 			<input data-toggle="modal" data-target="#updateApplicant" action="/applicants/update" method="GET" type="submit" name="search" value="Submit"></input>
 		</div>
 	</section>
+	<div>
+<!-- 	<a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a> -->
+	<a href="/home"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+	</div>
 				<!-- modal start -->
 			<div class="modal fade bs-example-modal-lg" id="updateApplicant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog">
@@ -36,7 +40,7 @@
 			      <!-- The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc. -->
 			      <div class="modal-body">
      						<form>
-     							
+
      						</form>	
 			      </div> <!-- End of Modal Body -->
 			      <!-- The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default. -->

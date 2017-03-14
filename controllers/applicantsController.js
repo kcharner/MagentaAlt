@@ -37,6 +37,12 @@ router.post("/create", function(req, res) {
         }});
 });
 
+// get request that renders the user to the update-applicant page
+router.get("/update-applicant", function(req, res) {
+  res.sendFile(path.join(__dirname, "../views/users/update-applicant.html"));
+  // res.render("users/update-applicant")
+});
+
 // post request to view all applicants (add in conditional for whether or not there are open applicants)
 router.post("/viewAll", function(req, res) {
   
@@ -50,6 +56,29 @@ router.post("/viewAll", function(req, res) {
     });
 });
 
+// 
+
+// GET request for display application_process information associated with the selected applicants email
+
+// router.get("/viewApplicantProcess", function(req, res) {
+
+//     query = "SELECT * from applicants where lastName = ?";
+
+//     if (response.length > 0) {
+//         res.send('We do not have a record for this applicant.')
+//     } else {
+//       query = "SELECT * from applicants where id = ?";
+//     }
+
+// SELECT a.id, a.first_name, a.last_name, ap.applicant_id, ap.applied, ap.fp_appt, ap.fp_background_approval, ap.orange_tag, ap.sida_class, ap.side_result, ap.orientation_training, ap.safety_training, ap.customer_training, ap.receive_id from applicants a LEFT JOIN application_process ap ON ap.applicant_id = a.id WHERE email='miriam@magentaATS.com';
+    //revise to update applicant status: changing 
+//     connection.query("", [],function(err, result) {
+//           res.redirect("/home"); 
+//       });
+// });
+
+
+
 // put request for finalizing updates of applicant's form
 router.put("/update", function(req, res) {
 
@@ -61,8 +90,9 @@ router.put("/update", function(req, res) {
       query = "SELECT * from applicants where id = ?";
     }
 
-    connection.query("UPDATE applicants SET first_name = ?, SET last_name = ?, SET home_phone = ?, SET cell_phone = ?, SET email = ?, SET contract_id = ?, SET position_id = ?, SET driver_license = ?, SET driver_exp = ?, SET sora_license = ?, SET sora_exp = ? WHERE id = this.id", [req.body.first_name, req.body.last_name, req.body.home_phone, req.body.cell_phone, req.body.email, req.body.contract_id, req.body.position_id, req.body.driver_license, req.body.driver_exp, req.body.sora_license, req.body.sora_exp],function(err, result) {
-          res.redirect("/home");
+    //revise to update applicant status: changing 
+    connection.query("UPDATE application_process SET applied = ?, SET fp_appt = ?, SET fp_background_approval = ?, SET orange_tag = ?, SET sida_class = ?, SET side_result = ?, SET orientation_training = ?, SET safety_training = ?, SET customer_training = ?, SET receive_id = ?, SET id_front = ?, SET id_back = ?, SET id_exp = ? WHERE id = this.id", [req.body.applied, req.body.fp_appt, req.body.fp_background_approval, req.body.orange_tag, req.body.sida_class, req.body.side_result, req.body.orientation_training, req.body.safety_training, req.body.customer_training, req.body.receive_id, req.body.id_front, req.body.id_back, req.body.id_exp],function(err, result) {
+          res.redirect("/home"); 
       });
 });
 
