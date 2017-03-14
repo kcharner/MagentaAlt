@@ -16,6 +16,12 @@ router.get('/home', function(req, res) {
   res.render('users/homepage');
 });
 
+// get request that renders the user to the update-applicant page
+router.get("/update-applicant", function(req, res) {
+  res.sendFile(path.join(__dirname, "../views/users/update-applicant.html"));
+  // res.render("users/update-applicant")
+});
+
 // post request to create new appliant 
 router.post("/create", function(req, res) {
 
@@ -37,12 +43,6 @@ router.post("/create", function(req, res) {
         }});
 });
 
-// get request that renders the user to the update-applicant page
-router.get("/update-applicant", function(req, res) {
-  res.sendFile(path.join(__dirname, "../views/users/update-applicant.html"));
-  // res.render("users/update-applicant")
-});
-
 // post request to view all applicants (add in conditional for whether or not there are open applicants)
 router.post("/viewAll", function(req, res) {
   
@@ -60,29 +60,34 @@ router.post("/viewAll", function(req, res) {
 
 // GET request for display application_process information associated with the selected applicants email
 
-// router.get("/viewApplicantProcess", function(req, res) {
+router.post("/viewProcess", function(req, res) {
 
-//     query = "SELECT * from applicants where lastName = ?";
+    
+    // if(response.length > 0){
+    //    res.send('We do not have a record for this applicant.')
+    // }
+    // else{
+      query = "SELECT a.id, a.first_name, a.last_name, ap.applicant_id, ap.applied, ap.fp_appt, ap.fp_background_approval, ap.orange_tag, ap.sida_class, ap.side_result, ap.orientation_training, ap.safety_training, ap.customer_training, ap.receive_id from applicants a LEFT JOIN application_process ap ON ap.applicant_id = a.id WHERE email=?";
+    // }
 
-//     if (response.length > 0) {
-//         res.send('We do not have a record for this applicant.')
-//     } else {
-//       query = "SELECT * from applicants where id = ?";
-//     }
-
-// SELECT a.id, a.first_name, a.last_name, ap.applicant_id, ap.applied, ap.fp_appt, ap.fp_background_approval, ap.orange_tag, ap.sida_class, ap.side_result, ap.orientation_training, ap.safety_training, ap.customer_training, ap.receive_id from applicants a LEFT JOIN application_process ap ON ap.applicant_id = a.id WHERE email='miriam@magentaATS.com';
-    //revise to update applicant status: changing 
-//     connection.query("", [],function(err, result) {
-//           res.redirect("/home"); 
-//       });
-// });
+    // if (response.length > 0) {
+    //     res.send('We do not have a record for this applicant.')
+    // } else {
+    //   query = "SELECT * from applicants where id = ?";
+    // }
+    
+    connection.query(query, [req.body.email], function(err, response) {
+      console.log(response)
+          res.send(response);
+      });
+});
 
 
 
 // put request for finalizing updates of applicant's form
 router.put("/update", function(req, res) {
 
-    query = "SELECT * from applicants where lastName = ?";
+    // query = "SELECT * from applicants where lastName = ?";
 
     if (response.length > 0) {
         res.send('We do not have a record for this applicant.')

@@ -5,22 +5,27 @@
 	<title>Magenta Applicant Tracking App</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/formatStyle.css">
+	<link rel="stylesheet" type="text/css" href="../../public/assets/css/formatStyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 	<header class="jumbotron">
 		<h1>Update Applicants Dashboard</h1>
 	</header>
-	<section class="container">
+	<div class="container">
 		<h2>Search Applicant</h2>
 		<div class="col-lg-4">
-			<input type="text" name="email" placeholder="Search by Email">
-			<input data-toggle="modal" data-target="#updateApplicant" action="/applicants/update" method="GET" type="submit" name="search" value="Submit"></input>
+			<input id="email" class="input-lg" type="text" name="email" placeholder="Search by Email">
+			<button id="searchApplicant" class="btn btn-primary btn-lg" action="/applicants/update" method="GET" type="submit" name="search" value="Submit">Submit</button>
 		</div>
-	</section>
+	</div>
+	<div id="applicantResults" class="container">
+		
+	</div>
 	<div>
-<!-- 	<a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a> -->
+		<button id="searchApplicant" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#updateApplicant" action="/applicants/update" method="GET" type="submit" name="search" value="Submit">Edit Applicant</button>
+	</div>
+	<div>
 	<a href="/home"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
 	</div>
 				<!-- modal start -->
@@ -34,22 +39,53 @@
 			      <!-- The <button> inside the header has a data-dismiss="modal" attribute which closes the modal if you click on it -->
 			      <!-- The .close class styles the close button, and the .modal-title class styles the header with a proper line-height -->
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">New Applicant</h4>
+			        <h4 class="modal-title" id="myModalLabel"></h4>
 			      </div>
 
 			      <!-- The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc. -->
 			      <div class="modal-body">
-     						<form>
 
-     						</form>	
+
 			      </div> <!-- End of Modal Body -->
 			      <!-- The .modal-footer class is used to define the style for the footer of the modal. Note that this area is right aligned by default. -->
+						<form action="/update_method=PUT" method="POST" role="form">
+							
+
+							<div class="form-group">
+								<input id="updateBtn" type="submit" id="submit" class="btn btn-primary" value="Save Changes">
+								
+							</div>
+						</form>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			      </div>
 			    </div> <!-- End of Modal Content -->
 			  </div> 
 			</div> <!-- End of Modal -->
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$("#searchApplicant").on("click", function(event){
+		event.preventDefault();
+		// Why does this need to be held as an object variable?
+		var applicantSelected = { email: $("#email").val().trim()
+		}
+		console.log(applicantSelected);
+
+		$.post("/viewProcess", applicantSelected, function(data){
+			console.log(data)
+			$("#myModalLabel").html(data[0].first_name +  " " + data[0].last_name);
+
+			var applicantInfo = "<tr> <td>" + "Date Applied: " + "</td> <td>" + data[0].applied + "</td> </tr> <tr> <td>" + "Customer Training: " + "</td> <td>" + data[0].customer_training + "</td> </tr> <tr> <td>" + "Orientation Training: " + "</td> <td>" + data[0].orientation_training + "</td> </tr> <tr> <td>" + "Safety Training: " + "</td> <td>" + data[0].safety_training + "</td> </tr> <tr> <td>" + "FP Appointment: " + "</td> <td>" + data[0].fp_appt + "</td> </tr> <tr> <td>" + "FP Background Approval: " + "</td> <td>" + data[0].fp_background_approval + "</td> </tr> <tr> <td>" + "Orange Tag: "+ "</td> <td>"+ data[0].orange_tag + "</td> </tr> <tr> <td>"+ "Sida Class: " + "</td> <td>"+ data[0].sida_class + "</td> </tr> <tr> <td>" + "Sida Result: " + "</td> <td>" + data[0].sida_result + "</td> </tr>";
+			$("#applicantResults").append(applicantInfo);
+
+		})
+	})
+
+</script>
+
 	<footer class="container">
 		<p>Copyright 2017 Magenta Group</p>
 	</footer>
