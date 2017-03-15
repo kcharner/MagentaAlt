@@ -11,13 +11,15 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 var query;
 
-// router.get('/home', function(req, res) {
-//   if (req.session.logged_in = true) {
-//     res.render('users/homepage');
-//   } else {
-//     res.render('/');
-//   }
-// });
+router.get('/home', function(req, res) {
+  if (req.session.logged_in = true) {
+    res.redirect('users/homepage');
+  } else if (req.session.logged_in = false) {
+    res.redirect('/');
+  } else {
+    res.send("TEST")
+  }
+});
 
 // get request that takes user to sign-in page
 router.get("/sign-in", function(req, res) {
