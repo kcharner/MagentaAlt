@@ -1,18 +1,26 @@
+<!-- DASHBOARD -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Magenta Applicant Tracking App</title>
-	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="assets/css/formatStyle.css"> -->
+	<title>Dashboard: Magenta Applicant Tracking</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/formatStyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 </head>
 <body>
-	<header>
+	<nav class="navbar-fixed-top" id="nav">
+	   	<a id="navHeader" href="../index.html">MAGENTA</a>
+	   	<link><a href="./homepage.html"><span id="homeGlyph" class="glyphicon glyphicon-home" aria-hidden="true"></span></a></link>
+	</nav>
+	<div id="dashboardDiv">
 		<h1>Current Applicants Dashboard</h1>
-	</header>
+	</div>
 	<section id="mainContent">
+
 		<h2>Applicant Status</h2>
 		<div id="container" style="width:100%; height:400px;"></div>
 		<div class="col-lg-7">
@@ -20,7 +28,7 @@
 		<!-- 	<button id="create" type="button">create</button> -->
 		</div>
 	</section>
-	<footer>
+	<footer id="footer">
 		<p>Copyright 2017 Magenta Group</p>
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

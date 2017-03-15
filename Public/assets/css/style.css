@@ -1,0 +1,94 @@
+/*DESKTOP CSS*/
+/*HOMEPAGE*/
+#nav {
+	background-color: #002837;
+	border-bottom: 3px solid #EAC67A;
+	padding-bottom: 0%;
+}
+
+#navHeader {
+	font-family: Acme;
+	color: #C52966;
+	font-size: 60px;
+	margin-left: 3%;
+}
+
+#homeGlyph {
+	float: right;
+	color: white;
+}
+
+.jumbotron {
+	margin-top: 6%;
+}
+
+#dashboardDiv {
+	margin-top: 6%;
+}
+
+#jumboMain {
+	background-image: url("../images/ats1.jpg");
+	min-height: 1100px;
+	margin-bottom: 0%;
+}	
+
+#jumboContent {
+	margin-top: 3.5%;
+	padding-left: 0%;
+	padding-right: 3%;
+	text-align: center;
+}
+
+#tagline {
+	padding-bottom: 4%;
+}
+
+a:visited {
+	color: white;
+}
+
+#buttonDiv {
+	width: 60%; 
+	margin-left: 20%;
+}
+
+.standardBtn {
+	background-color: grey;
+	font-size: 20px;
+	font-family: Arial;
+	color: white;
+	border: none;
+	border-radius: 12px;
+	margin-right: 4%;
+}
+
+#footer {
+	text-align: center;
+	color: #EAC67A;
+	background-color: #002837;
+	padding: 2%;
+}
+
+.modal-header {
+	font-family: Source Sans Pro;
+	font-weight: bold;
+	color: #C52966;
+	background-color: #101e41;
+}
+
+.modal-body {
+	padding-top: 1%;
+	border-top: 2px solid yellow;
+	background-color: #ebebeb;
+}
+
+#myModalLabel {
+	text-align: center;
+}
+
+.modal-footer {
+	background-color: #ebebeb;
+}
+
+
+

@@ -1,28 +1,32 @@
-<!-- to be used for homepage/LOGIN -->
+<!-- HOMEPAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome to Magenta Applicant Tracking</title>
+	<link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/formatStyle.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 </head>
 <body>
-	<header>
-		<h1>Welcome to Magenta Applicant Tracking</h1>
-	</header>
-	<div id="loginForm">
-		<form action="login">
-
-			<input type="text" name="username" placeholder="username">
-
-			<input type="text" name="password" placeholder="password">
-
-			<button type="submit" name="login">Log In</button>
-
-		</form>
+	<nav class="navbar-fixed-top" id="nav">
+		<a id="navHeader" href="index.html">MAGENTA</a>
+	</nav>
+	<div class="jumbotron" id="jumboMain">
+		<div class="container col-lg-3 col-lg-offset-3" id="jumboContent">
+			<h1 id="tagline">Welcome</h1>
+			<p>Magenta Applicant Tracking System is a comprehensive HR employment solution designed to simplify the hiring process, giving you better visibility of your labor needs and easy access to real-time job-applicant data.</p>
+			<div id="buttonDiv">
+				<button class="standardBtn" role="button"><a href="/sign-in">Sign In</a></button>
+				<button class="standardBtn" role="button"><a href="/registration">Register</a></button>
+			</div>
+		</div>
 	</div>
-	<footer>
+	<footer id="footer">
 		<p>Copyright 2017 Magenta Group</p>
 	</footer>
-	
 </body>
 </html>
