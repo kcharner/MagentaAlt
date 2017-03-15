@@ -35,16 +35,17 @@
 			    <div class="modal-content">
 			    	<!-- Modal Header -->
 			      <!-- The .modal-header class is used to define the style for the header of the modal  -->
+			  	<form action="/update?_method=PUT" method="POST" role="form">
 			      <div class="modal-header">
 			      <!-- The <button> inside the header has a data-dismiss="modal" attribute which closes the modal if you click on it -->
 			      <!-- The .close class styles the close button, and the .modal-title class styles the header with a proper line-height -->
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title" id="myModalLabel"></h4>
+			        <input type="hidden" id="applicantID" name="applicantID"/>
 			      </div>
 
 			      <!-- The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc. -->
 			      <div class="modal-body">
-							<form action="/update_method=PUT" method="POST" role="form">
 								<div class="form-group">
 			            <label for="fp_appt">FP Appointment</label>
 			            <input type="date" name="fp_appt" class="form-control" id="fp_appt"/>
@@ -55,7 +56,7 @@
 			          </div>
 			          <div class="form-group">
 			            <label for="orange_tag">Orange Tag</label>
-			            <input type="text" name="orange_tag" class="form-control" id="orange_tag" placeholder="Enter Orange Tag #" />
+			            <input type="checkbox" name="orange_tag" class="form-control" id="orange_tag" checked="true"/>
 			          </div>
 			          <div class="form-group">
 			            <label for="sida_class">Sida Class</label>
@@ -63,7 +64,7 @@
 			          </div>
 			          <div class="form-group">
 			            <label for="sida_result">Sida Result</label>
-			            <input type="boolean" name="sida_result" class="form-control" id="sida_result"/>
+			            <input type="checkbox" name="sida_result" class="form-control" id="sida_result" checked="true"/>
 			          </div>
 			          <div class="form-group">
 			            <label for="orientation_training">Orientation Training</label>
@@ -79,11 +80,11 @@
 			          </div>
 			          <div class="form-group">
 			            <label for="receive_id">Receive ID</label>
-			            <input type="boolean" name="receive_id" class="form-control" id="receive_id"/>
+			            <input type="checkbox" name="receive_id" class="form-control" id="receive_id" checked="true" />
 			          </div>
 
 							<div class="form-group">
-								<input id="updateBtn" type="submit" id="submit" class="btn btn-primary" value="Save Changes">
+								<input id="updateBtn" type="submit" id="submit" class="btn btn-primary" value="Save Changes"/>
 								
 							</div>
 						</form>
@@ -118,9 +119,10 @@
 			customerTraining = "pending";
 			// Insert for loop function that loops through the data object and replaces values equal to null with a pending sign animation
 
-			var applicantInfo = data[0].first_name +  " " + data[0].last_name + "<tr> <td>" + "Date Applied: " + "</td> <td>" + data[0].applied + "</td> </tr> <tr> <td>" + "Customer Training: " + "</td> <td>" + customerTraining + "</td> </tr> <tr> <td>" + "Orientation Training: " + "</td> <td>" + data[0].orientation_training + "</td> </tr> <tr> <td>" + "Safety Training: " + "</td> <td>" + data[0].safety_training + "</td> </tr> <tr> <td>" + "FP Appointment: " + "</td> <td>" + data[0].fp_appt + "</td> </tr> <tr> <td>" + "FP Background Approval: " + "</td> <td>" + data[0].fp_background_approval + "</td> </tr> <tr> <td>" + "Orange Tag: "+ "</td> <td>"+ data[0].orange_tag + "</td> </tr> <tr> <td>"+ "Sida Class: " + "</td> <td>"+ data[0].sida_class + "</td> </tr> <tr> <td>" + "Sida Result: " + "</td> <td>" + data[0].sida_result + "</td> </tr>";
+			var applicantInfo = "<tr> <td>" + "Date Applied: " + "</td> <td>" + data[0].applied + "</td> </tr> <tr> <td>" + "Customer Training: " + "</td> <td>" + customerTraining + "</td> </tr> <tr> <td>" + "Orientation Training: " + "</td> <td>" + data[0].orientation_training + "</td> </tr> <tr> <td>" + "Safety Training: " + "</td> <td>" + data[0].safety_training + "</td> </tr> <tr> <td>" + "FP Appointment: " + "</td> <td>" + data[0].fp_appt + "</td> </tr> <tr> <td>" + "FP Background Approval: " + "</td> <td>" + data[0].fp_background_approval + "</td> </tr> <tr> <td>" + "Orange Tag: "+ "</td> <td>"+ data[0].orange_tag + "</td> </tr> <tr> <td>"+ "Sida Class: " + "</td> <td>"+ data[0].sida_class + "</td> </tr> <tr> <td>" + "Sida Result: " + "</td> <td>" + data[0].sida_result + "</td> </tr>";
+			var name = data[0].first_name +  " " + data[0].last_name;
 
-
+			$("#applicantResults").append("<h3>" + name + "<h3>")
 			$("#applicantResults").append(applicantInfo);
 
 		})
@@ -138,8 +140,25 @@
 		$.post("/viewProcess", applicantSelected, function(data){
 			console.log(data)
 			$("#myModalLabel").html(data[0].first_name +  " " + data[0].last_name)
+			$("#applicantID").attr("value", data[0].id)
 			});
 		});
+
+
+	$("#updateBtn").on("click", function(event){
+			
+			// var fbDate = $("#fp_appt").val().trim();
+			// consol.log(fbDate);
+			var id = { applicant_id : $("#applicantID").val()
+			}
+			
+
+
+	
+	});
+
+
+
 
 </script>
 
