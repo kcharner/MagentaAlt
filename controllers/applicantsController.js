@@ -7,9 +7,14 @@ var router = express();
 var bodyParser = require("body-parser");
 var connection = require("../config/connection.js");
 var query;
+var methodOverride = require("method-override");
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.text({ type: 'text/html' }))
+
+// Override with POST having ?_method=DELETE
+router.use(methodOverride("_method"));
 
 //get request to the homepage
 router.get('/home', function(req, res) {
@@ -75,22 +80,18 @@ router.post("/viewProcess", function(req, res) {
   });
 });
 
-
-
 // put request for finalizing updates of applicant's form
 router.put("/update", function(req, res) {
 
-    // query = "SELECT * from applicants where lastName = ?";
-
-    if (response.length > 0) {
-        res.send('We do not have a record for this applicant.')
-    } else {
-      query = "SELECT * from applicants where id = ?";
-    }
-
     //revise to update applicant status: changing 
-    connection.query("UPDATE application_process SET applied = ?, SET fp_appt = ?, SET fp_background_approval = ?, SET orange_tag = ?, SET sida_class = ?, SET side_result = ?, SET orientation_training = ?, SET safety_training = ?, SET customer_training = ?, SET receive_id = ?, SET id_front = ?, SET id_back = ?, SET id_exp = ? WHERE id = this.id", [req.body.applied, req.body.fp_appt, req.body.fp_background_approval, req.body.orange_tag, req.body.sida_class, req.body.side_result, req.body.orientation_training, req.body.safety_training, req.body.customer_training, req.body.receive_id, req.body.id_front, req.body.id_back, req.body.id_exp],function(err, result) {
-          res.redirect("/home"); 
+    // var appId = { id: (req.body.applicantID)
+    // };
+    // console.log(appId);
+    console.log(req.body);
+
+    connection.query("UPDATE application_process SET fp_appt =?, fp_background_approval =?, orange_tag =?, sida_class =?, side_result =?, orientation_training =?, safety_training =?, customer_training=?, receive_id =?, where id =?", [req.body.fp_appt, req.body.fp_background_approval, req.body.orange_tag, req.body.sida_class, req.body.side_result, req.body.orientation_training, req.body.safety_training, req.body.customer_training, req.body.receive_id, req.body.applicantID] ,function(err, result) {
+          console.log("Update Complete")
+          res.redirect("/update-applicant"); 
       });
 });
 
