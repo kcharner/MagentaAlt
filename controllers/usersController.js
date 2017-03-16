@@ -11,14 +11,19 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 var query;
 
+// router.get('/home', function(req, res) {
+//   if (req.session.logged_in = true) {
+//     res.redirect('homepage');
+//   } else if (req.session.logged_in = false) {
+//     res.redirect('/');
+//   } else {
+//     res.send("TEST")
+//   }
+// });
+
+//get request to the homepage
 router.get('/home', function(req, res) {
-  if (req.session.logged_in = true) {
-    res.redirect('users/homepage');
-  } else if (req.session.logged_in = false) {
-    res.redirect('/');
-  } else {
-    res.send("TEST")
-  }
+  res.sendFile(path.join(__dirname, "../views/users/homepage.html"));
 });
 
 // get request that takes user to sign-in page
