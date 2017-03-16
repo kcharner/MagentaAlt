@@ -3,7 +3,7 @@ var path = require('path');
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var connection = require('../config/connection.js')
-var Q = require('Q');
+var q = require('q');
 var router = express();
 
 router.get('/applicants', function(req,res) {
