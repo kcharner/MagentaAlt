@@ -1,3 +1,4 @@
+
 	// Submit button that displays all data assocaite with the chosen applicants application process
 	$("#searchApplicant").on("click", function(event){
 		event.preventDefault();
@@ -7,28 +8,40 @@
 		console.log(applicantSelected);
 
 	// This post request displays the status of each process in the applicant_process table
-		$.post("/viewProcess", applicantSelected, function(data){
-			console.log(data[0])
+	$.post("/viewProcess", applicantSelected, function(data){
+		console.log(data[0])
+		var name = data[0].first_name + " " + data[0].last_name;
+		var appDate = "Application Date: " + data[0].applied;
+
+		$("#applicantName").append(name);
+		$("#applied").append(appDate);
 
 		$.each( data[0], function( key, value ) {
 		  console.log( key + ": " + value );
 
 		  // This if statement displays applicant process information as a pending animation if data has yet to be entered into the application_process table
-		  if(value == null){
-		  // 	var drawnCheck = $("<canvas height='160'/>")
-		  // 	$("#applicantResults").append(drawnCheck)
-
-		  		var spinCircle = $("<div class='spinner circles'>")
+		
+		if (value == null){
+				// var row = $("<div class='container'>")
+				var results = $("<div>")
+				var cellName = $("<div class='col-md-2'>")
+				var cellValue = $("<div class='col-md-2'>")
+		  	var spinCircle = $("<div class='spinner circles'>")
 
 				  for(var i = 0; i < 8; i++){
 				  	var spinHold = $("<div>")
 				  	spinCircle.append(spinHold)
 				  }
-				  $("#applicantResults").append(key)
-				  $("#applicantResults").append(spinCircle);
+				  cellName.append(key)
+				  cellValue.append(spinCircle)
+				  results.append(cellName)
+				  results.append(cellValue)
+				  $("tbody").append(results)
 		  }
 		  // This if statements displays applicant process information as an animated drawn check if data has been updated in the application_process table already
 		  // else if(){
+		  // 	var drawnCheck = $("<canvas height='160'/>")
+		  // 	$("#applicantResults").append(drawnCheck)
 
 		  // }
 
@@ -82,14 +95,6 @@
 					
 			// 		$("#applicantResults").append(drawnCheck)
 			// 	}
-
-	// ==============      ============
-
-			// var applicantInfo = "<tr> <td>" + "Date Applied: " + "</td> <td>" + data[0].applied + "</td> </tr> <tr> <td>" + "Customer Training: " + "</td> <td>" + data[0].customer_training + "</td> </tr> <tr> <td>" + "Orientation Training: " + "</td> <td>" + data[0].orientation_training + "</td> </tr> <tr> <td>" + "Safety Training: " + "</td> <td>" + data[0].safety_training + "</td> </tr> <tr> <td>" + "FP Appointment: " + "</td> <td>" + data[0].fp_appt + "</td> </tr> <tr> <td>" + "FP Background Approval: " + "</td> <td>" + data[0].fp_background_approval + "</td> </tr> <tr> <td>" + "Orange Tag: "+ "</td> <td>"+ data[0].orange_tag + "</td> </tr> <tr> <td>"+ "Sida Class: " + "</td> <td>"+ data[0].sida_class + "</td> </tr> <tr> <td>" + "Sida Result: " + "</td> <td>" + data[0].side_result + "</td> </tr>";
-			// var name = data[0].first_name +  " " + data[0].last_name;
-
-			// $("#applicantResults").append("<h3>" + name + "<h3>");
-			// $("#applicantResults").append(applicantInfo);
 		})
 	})
 });

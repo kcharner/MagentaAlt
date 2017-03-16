@@ -120,9 +120,9 @@ button.standardBtn {
  * Spinner
  * =========================================================*/
 .spinner{
-     width:100px;
-     height:100px;
-     margin:30px auto;
+     width:20px;
+     height:15px;
+     margin:75px auto;
      position:relative;
      -webkit-animation: rotateit 1.3s linear infinite;
      -moz-animation: rotateit 1.3s linear infinite;

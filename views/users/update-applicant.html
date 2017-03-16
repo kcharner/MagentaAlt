@@ -47,9 +47,19 @@
 			<button id="searchApplicant" class="btn btn-primary btn-lg" action="/applicants/update" method="GET" type="submit" name="search" value="Submit">Submit</button>
 		</div>
 	</div>
-	<div id="applicantResults" class="container"></div>
+	<!-- Div below displays applicant process information -->
+	<div id="applicantResults" class="container">
+		<table style="width:100%">
+			<thead><h2 id="applicantName"></h2>
+				<div><h4 id="applied"></h4></h4></div>
+			</thead>
+  		<tbody>
+  		</tbody>
+		</table>
+	</div>
 	<div>
-		<button id="editApplicant" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#updateApplicant" action="/viewProcess" method="GET" type="submit" name="search" value="Submit">Edit Applicant</button>
+	<!-- This button displays the modal allowing the user to update applicant process info -->
+	<button id="editApplicant" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#updateApplicant" action="/viewProcess" method="GET" type="submit" name="search" value="Submit">Edit Applicant</button>
 	</div>
 				<!-- modal start -->
 			<div class="modal fade bs-example-modal-lg" id="updateApplicant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
