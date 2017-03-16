@@ -1,26 +1,55 @@
+<!-- SIGN-IN -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
+    <meta charset="UTF-8">
+    <title>Sign In: Magenta Applicant Tracking</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/formatStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar-fixed-top" id="nav">
+        <a id="navHeader" href="index.html">MAGENTA</a>
+        <!-- <link><a href="../index.html"><span id="homeGlyph" class="glyphicon glyphicon-home" aria-hidden="true"></span></a></link> -->
+    </nav>
+    <div class="jumbotron">
+        <div>
+            <h1 id="userControlHeader">Sign In</h1>
+            <form class="userForm" action="/login" method="post" role="form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="text" name="email" class="form-control" id="email" placeholder="" required/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" required/>
+                </div>
+                <div class="form-group">
+                    <input id="createBtn" type="submit" id="submit" class="btn btn-primary" value="Sign-In">
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer id="footer">
+        <p>Copyright 2017 Magenta Group</p>
+    </footer>
 
-<h1>Sign In</h1>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<form class="create-update-form" action="/users/login" method="POST">
+<script type="text/javascript">
+  
+  $("#submit").on("click", function(event) {
 
-  <div class="form-group">
-    <label for="em">Email:</label>
-    <input type="text" id="em" name="email">
-  </div>
+    event.preventDefault();
 
-  <div class="form-group">
-    <label for="pass">Password:</label>
-    <input type="password" id="pass" name="password">
-  </div>
+  });
 
-  <button type="submit">Sign In</button>
-</form>
+</script>
 
 </body>
 </html>

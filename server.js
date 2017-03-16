@@ -24,6 +24,9 @@ app.set('view engine', 'html');
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + "/public"));
 
+//this is needed for css files to work!!!!!!
+app.use(express.static(path.join(__dirname, '/public')));
+
 // Start The Server
 // =============================================================
 app.listen(PORT, function() {
@@ -33,11 +36,9 @@ app.listen(PORT, function() {
 var applicationController = require("./controllers/applicationController.js");
 var usersController = require("./controllers/usersController.js");
 var applicantsController = require("./controllers/applicantsController.js");
+var dashboardController = require("./controllers/dashboardController.js");
 
-app.use("/", applicationController, usersController, applicantsController);
-
-
-
+app.use("/", applicationController, usersController, applicantsController, dashboardController);
 
 
 

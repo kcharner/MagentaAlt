@@ -16,10 +16,7 @@ router.use(bodyParser.text({ type: 'text/html' }))
 // Override with POST having ?_method=DELETE
 router.use(methodOverride("_method"));
 
-//get request to the homepage
-router.get('/home', function(req, res) {
-  res.render('users/homepage');
-});
+
 
 // get request that renders the user to the update-applicant page
 router.get("/update-applicant", function(req, res) {

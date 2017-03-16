@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<!-- <link rel="stylesheet" href="/assets/css/style.css" type="text/css" /> -->
-	<title>Magenta Applicant Tracking App</title>
-	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+	<title>Homepage: Magenta Applicant Tracking</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/formatStyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Acme|Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
-	<!-- page-header -->
-	<header>
-		<h1>Magenta Applicant Tracking App</h1>
-	</header>
+	<nav class="navbar-fixed-top" id="nav">
+	   	<a id="navHeader" href="/home">MAGENTA</a>
+	   	<link><a href="/home"><span id="homeGlyph" class="glyphicon glyphicon-home" aria-hidden="true"></span></a></link>
+	</nav>
 	<!-- main content for HR homepage -->
 	<section class="container" id="mainContent">
 		<!-- start new applicant div -->
 		<div class="jumbotron">
 			<h2>New Applicants</h2>
-			<p>Will fill in description later - this is placeholder text</p>
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newApplicantModal">
+			<p>To create a new applicant in the database, click the button below and fill out the form.</p>
+			<button type="button" class="standardBtn" data-toggle="modal" data-target="#newApplicantModal">
 		  	ADD NEW APPLICANT
 			</button>
 			<!-- modal start -->
@@ -32,7 +35,7 @@
 			      <!-- The <button> inside the header has a data-dismiss="modal" attribute which closes the modal if you click on it -->
 			      <!-- The .close class styles the close button, and the .modal-title class styles the header with a proper line-height -->
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">New Applicant</h4>
+			        <h4 class="modal-title" id="myModalLabel">ADD NEW APPLICANT</h4>
 			      </div>
 
 			      <!-- The .modal-body class is used to define the style for the body of the modal. Add any HTML markup here; paragraphs, images, videos, etc. -->
@@ -135,8 +138,8 @@
 		<!-- start update applicant div -->
 		<div class="jumbotron">
 			<h2>Update Applicant</h2>
-			<p>Will fill in description later - this is placeholder text</p>
-			<a href="/update-applicant"><button type="button" class="btn btn-primary btn-lg">UPDATE APPLICANT</button></a>
+			<p>To update exisiting applicant, click the link below.</p>
+			<a href="/update-applicant"><button type="button" class="standardBtn">UPDATE APPLICANT</button></a>
 
 			<!-- second modal for updating goes here -->
 
@@ -144,8 +147,8 @@
 		<!-- start view all div -->
 		<div class="jumbotron">
 			<h2>View All Applicants</h2>
-			<p>Will fill in description later - this is placeholder text</p>
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#allApplicants">
+			<p>To view all applicants by contract, click the button below.</p>
+			<button type="button" class="standardBtn" data-toggle="modal" data-target="#allApplicants">
 		  	VIEW ALL APPLICANTS
 			</button>
 			<!-- Start of Modal -->
@@ -168,13 +171,13 @@
 		                <label for="contract_view">Contract</label>
 		                	<select class="chosen-select" id="contract_view">
 						 		<option value=""></option>
-					            <option value="1" id="option1">1 - Transportation</option>
-					            <option value="2" id="option2">2 - Warehouse</option>
-					            <option value="3" id="option3">3 - Lav&amp;Water</option>
-					            <option value="4" id="option4">4 - FeDex</option>
-					            <option value="5" id="option5">5 - VBC</option>
-					            <option value="6" id="option6">6 - Wheelchair</option>
-					            <option value="7" id="option7">7 - Port Authority Baggage</option>
+					            <option value="1" id="option1">Transportation</option>
+					            <option value="2" id="option2">Warehouse</option>
+					            <option value="3" id="option3">Lav&amp;Water</option>
+					            <option value="4" id="option4">FeDex</option>
+					            <option value="5" id="option5">VBC</option>
+					            <option value="6" id="option6">Wheelchair</option>
+					            <option value="7" id="option7">Port Authority Baggage</option>
 	      					</select>
 
 	      				    <div class="text-right">
@@ -203,17 +206,14 @@
 		<!-- start results dashboard div -->
 		<div class="jumbotron">
 			<h2>Results Dashboard</h2>
-			<p>Will fill in description later - this is placeholder text</p>
-			<button type="button"><a href="dashboard">Results</a></button> <!-- will link to new HTML file -->
+			<p>Click the link below to view your real-time applicant data.</p>
+			<a href="./dashboard"><button class="standardBtn" type="button">RESULTS</button></a> <!-- will link to new HTML file -->
 		</div>
 	</section>
 	<!-- footer start -->
-	<footer>
+	<footer id="footer">
 		<p>Copyright 2017 Magenta Group</p>
 	</footer>
-
-
-
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
