@@ -41,6 +41,7 @@ var dashboardController = require("./controllers/dashboardController.js");
 app.use("/", applicationController, usersController, applicantsController, dashboardController);
 
 
+
 // app.use("/", usersController);
 
 // Sets up the Express app to handle data parsing

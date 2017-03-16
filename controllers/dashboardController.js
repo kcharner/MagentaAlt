@@ -18,7 +18,6 @@ router.get('/applicants', function(req,res) {
 		queryContracts += " GROUP BY contract_id;"		
 		connection.query(queryContracts, defered.makeNodeResolver());
 		return defered.promise;
-
 	}
 
 	function getAppPost(){
@@ -38,8 +37,11 @@ router.get('/applicants', function(req,res) {
    Q.all([getAppContract(),getAppPost()]).then(function(results){
  		res.json(results);
     });
+
 });
 
-
+router.get('/dashboard', function(req,res) {
+    res.render('users/dashboard');
+});
 
 module.exports = router;

@@ -65,45 +65,45 @@ router.post("/viewAll", function(req, res) {
 
 // GET request for display application_process information associated with the selected applicants email
 
-router.post("/viewProcess", function(req, res) {
+// router.post("/viewProcess", function(req, res) {
 
-  query = "SELECT a.id, a.first_name, a.last_name, ap.applicant_id, ap.applied, ap.fp_appt, ap.fp_background_approval, ap.orange_tag, ap.sida_class, ap.side_result, ap.orientation_training, ap.safety_training, ap.customer_training, ap.receive_id from applicants a LEFT JOIN application_process ap ON ap.applicant_id = a.id WHERE email=?";
+//   query = "SELECT a.id, a.first_name, a.last_name, ap.applicant_id, ap.applied, ap.fp_appt, ap.fp_background_approval, ap.orange_tag, ap.sida_class, ap.side_result, ap.orientation_training, ap.safety_training, ap.customer_training, ap.receive_id from applicants a LEFT JOIN application_process ap ON ap.applicant_id = a.id WHERE email=?";
 
-  connection.query(query, [req.body.email], function(err, response) { 
-    if(response < 0){
-       res.send('We do not have a record for this applicant.')
-    }
-    else{
-      console.log(response)
-      res.send(response); 
-    }
-  });
-});
-
-// put request for finalizing updates of applicant's form
-router.put("/update", function(req, res) {
-
-    //revise to update applicant status: changing 
-    // var appId = { id: (req.body.applicantID)
-    // };
-    // console.log(appId);
-    console.log(req.body);
-
-    connection.query("UPDATE application_process SET fp_appt =?, fp_background_approval =?, orange_tag =?, sida_class =?, side_result =?, orientation_training =?, safety_training =?, customer_training=?, receive_id =?, where id =?", [req.body.fp_appt, req.body.fp_background_approval, req.body.orange_tag, req.body.sida_class, req.body.side_result, req.body.orientation_training, req.body.safety_training, req.body.customer_training, req.body.receive_id, req.body.applicantID] ,function(err, result) {
-          console.log("Update Complete")
-          res.redirect("/update-applicant"); 
-      });
-});
-
-// to delete an applicant
-// router.delete("/:id", function(req, res) {
-//   connection.query("DELETE FROM applicants WHERE id = ?", [req.params.id], function(err, result) {
-//     if (err) {
-//       throw err;
+//   connection.query(query, [req.body.email], function(err, response) { 
+//     if(response < 0){
+//        res.send('We do not have a record for this applicant.')
 //     }
-//     res.redirect("/home");
+//     else{
+//       console.log(response)
+//       res.send(response); 
+//     }
 //   });
 // });
+
+// // put request for finalizing updates of applicant's form
+// router.put("/update", function(req, res) {
+
+//     //revise to update applicant status: changing 
+//     // var appId = { id: (req.body.applicantID)
+//     // };
+//     // console.log(appId);
+//     console.log(req.body);
+
+//     connection.query("UPDATE application_process SET fp_appt =?, fp_background_approval =?, orange_tag =?, sida_class =?, side_result =?, orientation_training =?, safety_training =?, customer_training=?, receive_id =?, where id =?", [req.body.fp_appt, req.body.fp_background_approval, req.body.orange_tag, req.body.sida_class, req.body.side_result, req.body.orientation_training, req.body.safety_training, req.body.customer_training, req.body.receive_id, req.body.applicantID] ,function(err, result) {
+//           console.log("Update Complete")
+//           res.redirect("/update-applicant"); 
+//       });
+// });
+
+// // to delete an applicant
+// // router.delete("/:id", function(req, res) {
+// //   connection.query("DELETE FROM applicants WHERE id = ?", [req.params.id], function(err, result) {
+// //     if (err) {
+// //       throw err;
+// //     }
+// //     res.redirect("/home");
+// //   });
+// // });
 
 module.exports = router;
 
