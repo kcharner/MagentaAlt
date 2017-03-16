@@ -104,3 +104,12 @@ button.standardBtn {
 	margin: 5px;
 }
 
+#mainContainer {
+	width: 60%;
+	margin-left: 20%;
+}
+
+#regHeader {
+	width: 60%;
+	margin-left: 30%;
+}
