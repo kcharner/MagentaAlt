@@ -90,5 +90,9 @@ a:visited {
 	background-color: #ebebeb;
 }
 
+button.standardBtn {
+	margin: 5px;
+}
+
 
 
