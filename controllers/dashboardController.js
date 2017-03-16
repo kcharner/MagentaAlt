@@ -9,7 +9,7 @@ var router = express();
 router.get('/applicants', function(req,res) {
 
 	function getAppContract(){
-		var defered = Q.defer();
+		var defered = q.defer();
 		var queryContracts = "SELECT COUNT(applicants.id) as total_contract, ";
 		queryContracts += " contracts.contract_name as contract, ";
 		queryContracts += " contracts.id as contract_id "
@@ -21,7 +21,7 @@ router.get('/applicants', function(req,res) {
 	}
 
 	function getAppPost(){
-		var defered = Q.defer();
+		var defered = q.defer();
 		var queryPositions = "SELECT COUNT(applicants.id) as total_pos, "
 		queryPositions += " positions.id as position_id, ";
 		queryPositions += " positions.position as position, ";
@@ -34,7 +34,7 @@ router.get('/applicants', function(req,res) {
 		return defered.promise;	
 	}
 
-   Q.all([getAppContract(),getAppPost()]).then(function(results){
+   q.all([getAppContract(),getAppPost()]).then(function(results){
  		res.json(results);
     });
 
