@@ -83,17 +83,19 @@ router.post("/viewProcess", function(req, res) {
 // put request for finalizing updates of applicant's form
 router.put("/update", function(req, res) {
 
-    //revise to update applicant status: changing 
-    // var appId = { id: (req.body.applicantID)
-    // };
-    // console.log(appId);
     console.log(req.body);
 
-    connection.query("UPDATE application_process SET fp_appt =?, fp_background_approval =?, orange_tag =?, sida_class =?, side_result =?, orientation_training =?, safety_training =?, customer_training=?, receive_id =?, where id =?", [req.body.fp_appt, req.body.fp_background_approval, req.body.orange_tag, req.body.sida_class, req.body.side_result, req.body.orientation_training, req.body.safety_training, req.body.customer_training, req.body.receive_id, req.body.applicantID] ,function(err, result) {
-          console.log("Update Complete")
-          res.redirect("/update-applicant"); 
-      });
-});
+    connection.query("UPDATE application_process SET fp_appt =?, fp_background_approval =?, orange_tag =?, sida_class =?, side_result =?, orientation_training =?, safety_training =?, customer_training=?, receive_id =? where id =?", [req.body.fp_appt, req.body.fp_background_approval, req.body.orange_tag, req.body.sida_class, req.body.side_result, req.body.orientation_training, req.body.safety_training, req.body.customer_training, req.body.receive_id, req.body.applicantID], function(err, result) { 
+
+       if (err){
+        console.log(err)
+       }else{
+        console.log("Update Complete")
+        res.redirect("/update-applicant"); 
+
+       }
+    }) 
+  });
 
 // to delete an applicant
 // router.delete("/:id", function(req, res) {
