@@ -127,10 +127,11 @@ button.standardBtn {
   font-size: 16px;
   font-weight: bold;
   position: relative;
+  /*top: 50px;*/
 }
 
-.pending {
-  margin-bottom: 30px;
+.completed {
+  margin: 30px auto;
 }
 
 
@@ -140,7 +141,7 @@ button.standardBtn {
 .loading{
      width:50px;
      height:50px;
-     margin:50px auto;
+     margin:30px auto;
      /*position:relative;*/
 }
 /*The next part of the CSS will be adding the animation to each bar of the spinner, this animation is going to be called fadeit and will run forever. The fadeit animation will change the opacity of the element from full to clear and back again. Changing the elements with this effect at different times will make it look like the bars are spinning.*/

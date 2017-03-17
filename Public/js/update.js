@@ -45,7 +45,7 @@
 		  // var canvas = $("<canvas style='color:purple;' class='canvas'>").attr("height", 100);
 		  // var path = $("<path id='check' d='M10,30 130,50 195,-70'/>");
 		  var imageSource = "../assets/images/checksign.jpg"
-		  var image = $("<img class='img-responsive pending' height='200' width='200'/>").attr('src', imageSource)
+		  var image = $("<img class='img-responsive completed' height='200' width='200'/>").attr('src', imageSource)
 		  // drawnCheck.append(path);
 		  		// key = ""
 
