@@ -2,36 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Magenta Applicant Tracking App</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 	<title>UPDATE APPLICANT: Magenta Applicant Tracking</title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/formatStyle.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../assets/css/formatStyle.css"> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 </head>
 <body>
-
-	<style type="text/css">
-		#check {
-			  fill: none;
-			  stroke: green;
-			  stroke-width: 20;
-			  stroke-linecap: round;
-			  stroke-dasharray: 180;
-			  stroke-dashoffset: 180;
-			  animation: draw 2s infinite ease;
-			}
-			@keyframes draw {
-			  to {
-			    stroke-dashoffset: 0;
-			  }
-			}
-	</style>
-
 	<nav class="navbar-fixed-top" id="nav">
 	   	<a id="navHeader" href="/home">MAGENTA</a>
 	   	<link><a href="/home"><span id="homeGlyph" class="glyphicon glyphicon-home btn-lg" aria-hidden="true"></span></a></link>
@@ -43,23 +24,28 @@
 	<div class="container">
 		<h2>Search Applicant</h2>
 		<div class="col-lg-4">
+			<form id="search">
 			<input id="email" class="input-lg" type="text" name="email" placeholder="Search by Email" required>
 			<button id="searchApplicant" class="btn btn-primary btn-lg" action="/applicants/update" method="GET" type="submit" name="search" value="Submit">Submit</button>
+			</form>
 		</div>
 	</div>
 	<!-- Div below displays applicant process information -->
 	<div id="applicantResults" class="container">
 		<table style="width:100%">
 			<thead><h2 id="applicantName"></h2>
-				<div><h4 id="applied"></h4></h4></div>
+				<h4 id="applied"></h4>
+				<h4 id="id"></h4>
 			</thead>
+			<br>
   		<tbody>
   		</tbody>
 		</table>
 	</div>
-	<div>
+	<div id="edit-clear">
 	<!-- This button displays the modal allowing the user to update applicant process info -->
 	<button id="editApplicant" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#updateApplicant" action="/viewProcess" method="GET" type="submit" name="search" value="Submit">Edit Applicant</button>
+	<button id="clr" class="btn btn-primary btn-lg" value="Clear Search">Clear Search</button>
 	</div>
 				<!-- modal start -->
 			<div class="modal fade bs-example-modal-lg" id="updateApplicant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -136,6 +122,7 @@
 	</footer>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/update.js"></script>
 </body>
