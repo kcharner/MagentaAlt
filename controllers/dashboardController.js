@@ -17,6 +17,7 @@ router.get('/applicants', function(req,res) {
 		query += " LEFT JOIN contracts ON applicants.contract_id = contracts.id ";
 		query += " GROUP BY contract_id;"		
 		connection.query(query, defered.makeNodeResolver());
+		// console.log(defered.promise);
 		return defered.promise;
 
 	}
@@ -31,8 +32,9 @@ router.get('/applicants', function(req,res) {
 		query += " FROM applicants "; 
 		query += " LEFT JOIN contracts ON applicants.contract_id = contracts.id ";
 		query += " INNER JOIN positions ON applicants.position_id = positions.id ";
-		query += " GROUP BY position_id;"
+		query += " GROUP BY contract_id, position_id"
 		connection.query(query, defered.makeNodeResolver());
+		console.log(defered.promise);
 		return defered.promise;	
 	}
 
