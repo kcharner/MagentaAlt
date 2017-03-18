@@ -31,7 +31,6 @@ function renderChartByContract(data, contract){
 	var dataPos = {data: []};
 
 	appByPos = data[1][0];
-
 	//Go over the second set of data that contains the total applicants by position
 	for (var i = 0; i < appByPos.length; i++) {
 		console.log(appByPos[i].position + "- " + appByPos[i].contract);
@@ -98,6 +97,7 @@ $.ajax({
 
 	// console.log(contracts);
 	// console.log(positions);
+	console.log(appByContract);
 
 	populateContracts(contracts);
 
