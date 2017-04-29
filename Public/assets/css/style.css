@@ -16,6 +16,8 @@
 #homeGlyph {
   float: right;
   color: white;
+  margin-right: 4%;
+  margin-top: 2%;
 }
 
 .jumbotron {
@@ -40,10 +42,14 @@
 } 
 
 #jumboContent {
-  margin-top: 3.5%;
-  padding-left: 0%;
+  margin-top: 15%;
+  width: 100%;
+  padding-left: 3%;
   padding-right: 3%;
   text-align: center;
+  background-color: #ddd;
+  opacity: 0.7;
+
 }
 
 #contentDiv {
@@ -61,6 +67,7 @@
 
 #tagline {
   padding-bottom: 4%;
+  color: #0f1626 ;
 }
 
 a:visited {
