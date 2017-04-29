@@ -7,7 +7,7 @@ A job-applicant tracking system designed for Human Resources
 Magenta Applicant Tracking System is a comprehensive HR employment solution designed to simplify the hiring process, giving you better visibility of your labor needs and easy access to real-time job-applicant data.
 
 
-![demo](/assets/images/magentaRecord.gif)
+![demo](./assets/images/magentaRecord.gif)
 
 
 
